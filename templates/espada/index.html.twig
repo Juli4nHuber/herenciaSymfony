@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espada index{% endblock %}
+
+{% block body %}
+    <h1>Espada index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Durabilidad</th>
+                <th>Critico</th>
+                <th>Letalidad</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for espada in espadas %}
+            <tr>
+                <td>{{ espada.id }}</td>
+                <td>{{ espada.nombre }}</td>
+                <td>{{ espada.durabilidad }}</td>
+                <td>{{ espada.critico }}</td>
+                <td>{{ espada.letalidad }}</td>
+                <td>
+                    <a href="{{ path('app_espada_show', {'id': espada.id}) }}">show</a>
+                    <a href="{{ path('app_espada_edit', {'id': espada.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_espada_new') }}">Create new</a>
+{% endblock %}

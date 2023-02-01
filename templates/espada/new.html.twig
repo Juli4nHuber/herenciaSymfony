@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Espada{% endblock %}
+
+{% block body %}
+    <h1>Create new Espada</h1>
+
+    {{ include('espada/_form.html.twig') }}
+
+    <a href="{{ path('app_espada_index') }}">back to list</a>
+{% endblock %}

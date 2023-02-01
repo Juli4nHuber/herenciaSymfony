@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Arma{% endblock %}
+
+{% block body %}
+    <h1>Create new Arma</h1>
+
+    {{ include('arma/_form.html.twig') }}
+
+    <a href="{{ path('app_arma_index') }}">back to list</a>
+{% endblock %}

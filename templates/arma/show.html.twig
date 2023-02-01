@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Arma{% endblock %}
+
+{% block body %}
+    <h1>Arma</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ arma.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ arma.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Durabilidad</th>
+                <td>{{ arma.durabilidad }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_arma_index') }}">back to list</a>
+
+    <a href="{{ path('app_arma_edit', {'id': arma.id}) }}">edit</a>
+
+    {{ include('arma/_delete_form.html.twig') }}
+{% endblock %}

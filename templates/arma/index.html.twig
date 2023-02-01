@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Arma index{% endblock %}
+
+{% block body %}
+    <h1>Arma index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Durabilidad</th>
+                <th>Tipo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for arma in armas %}
+            <tr>
+                <td>{{ arma.id }}</td>
+                <td>{{ arma.nombre }}</td>
+                <td>{{ arma.durabilidad }}</td>
+                <td>{{ arma.getClassName }}</td>
+                <td>
+                    <a href="{{ path("app_" ~ arma.getClassName|lower ~ "_show", {'id': arma.id}) }}">show</a>
+                    <a href="{{ path("app_" ~ arma.getClassName|lower ~ "_edit", {'id': arma.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_arma_new') }}">Create new</a>
+{% endblock %}

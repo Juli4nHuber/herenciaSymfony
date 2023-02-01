@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Arco{% endblock %}
+
+{% block body %}
+    <h1>Create new Arco</h1>
+
+    {{ include('arco/_form.html.twig') }}
+
+    <a href="{{ path('app_arco_index') }}">back to list</a>
+{% endblock %}

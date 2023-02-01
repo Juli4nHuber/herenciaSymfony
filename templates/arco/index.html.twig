@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Arco index{% endblock %}
+
+{% block body %}
+    <h1>Arco index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Durabilidad</th>
+                <th>CantFlechas</th>
+                <th>Rango</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for arco in arcos %}
+            <tr>
+                <td>{{ arco.id }}</td>
+                <td>{{ arco.nombre }}</td>
+                <td>{{ arco.durabilidad }}</td>
+                <td>{{ arco.cantFlechas }}</td>
+                <td>{{ arco.rango }}</td>
+                <td>
+                    <a href="{{ path('app_arco_show', {'id': arco.id}) }}">show</a>
+                    <a href="{{ path('app_arco_edit', {'id': arco.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_arco_new') }}">Create new</a>
+{% endblock %}

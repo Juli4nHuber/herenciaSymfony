@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Arco{% endblock %}
+
+{% block body %}
+    <h1>Edit Arco</h1>
+
+    {{ include('arco/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_arco_index') }}">back to list</a>
+
+    {{ include('arco/_delete_form.html.twig') }}
+{% endblock %}
